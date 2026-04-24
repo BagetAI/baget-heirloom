@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heirloom | Authentic Homemade Meals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HEIRLOOM</div>
+            <div class="nav-links">
+                <a href="#how-it-works">Process</a>
+                <a href="#waitlist" class="btn-outline">Join Waitlist</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Authentic homemade meals from your neighbors.</h1>
+                <p>Nourishing communities through local cooking. Affordable, healthy, and delivered with care.</p>
+                <div class="cta-group">
+                    <a href="#waitlist" class="btn-primary">Find a Kitchen</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/minimalist-overhead-shot-of-a-warm-home.png" alt="A warm bowl of homemade stew on a wooden table">
+            </div>
+        </section>
+
+        <section id="how-it-works" class="features">
+            <div class="section-label">THE PROCESS</div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="step-num">01</span>
+                    <h3>Discover</h3>
+                    <p>Find local home cooks in your neighborhood sharing their family heritage through food.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="step-num">02</span>
+                    <h3>Order</h3>
+                    <p>Select from authentic, single-batch meals prepared in permitted home kitchens.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="step-num">03</span>
+                    <h3>Enjoy</h3>
+                    <p>Pick up or receive local delivery. Real food, zero waste packaging, fair prices.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote">
+            <div class="quote-content">
+                "Heirloom isn't just a delivery app. It's a return to how we used to eat—connected, seasonal, and made by hand."
+            </div>
+        </section>
+
+        <section id="waitlist" class="waitlist">
+            <div class="waitlist-card">
+                <h2>Join the Riverside Pilot</h2>
+                <p>We are launching with our first 10 Flagship Cooks this spring. Reserve your spot for the first drop.</p>
+                <form id="waitlistForm">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="zip_code" placeholder="Zip Code" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="interest_type">
+                            <option value="eater">I want to order meals</option>
+                            <option value="cook">I want to cook and sell</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Get Early Access</button>
+                </form>
+                <div id="formFeedback" class="feedback"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">HEIRLOOM</div>
+            <div class="footer-links">
+                <span>&copy; 2026 Heirloom Marketplace</span>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const feedback = document.getElementById('formFeedback');
+            const button = form.querySelector('button');
+            const data = {
+                email: form.email.value,
+                zip_code: form.zip_code.value,
+                interest_type: form.interest_type.value
+            };
+
+            button.disabled = true;
+            button.textContent = 'Joining...';
+
+            try {
+                const response = await fetch('https://baget.ai/api/public/databases/9d51df10-4228-4f2e-90a6-f417a1918dc4/rows', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data })
+                });
+
+                if (response.ok) {
+                    feedback.textContent = 'Thanks! We will be in touch soon.';
+                    feedback.style.color = '#7C8B6F';
+                    form.reset();
+                } else {
+                    throw new Error('Failed to join');
+                }
+            } catch (err) {
+                feedback.textContent = 'Something went wrong. Please try again.';
+                feedback.style.color = '#B35C44';
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Get Early Access';
+            }
+        });
+    </script>
+</body>
+</html>
