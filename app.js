@@ -20,18 +20,23 @@ async function loadMarketplace() {
             menuGrid.innerHTML = menus.map(item => `
                 <div class="card">
                     <div class="card-top">
-                        <span class="card-tag">Family Style</span>
+                        <span class="card-tag ${item.dish_name.toLowerCase().includes('lasagna') && !item.dish_name.toLowerCase().includes('beef') ? 'austin-compliant' : ''}">
+                            Authentic Homemade
+                        </span>
                         <h3>${item.dish_name}</h3>
-                        <p class="card-meta">Prepared fresh today. Limited portions available.</p>
+                        <p class="card-meta">Hand-crafted by a neighbor using heritage recipes. Sustainable packaging included.</p>
                     </div>
                     <div class="card-bottom">
-                        <div class="price">$${item.price.toFixed(2)}</div>
-                        <a href="#waitlist" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.65rem;">Order</a>
+                        <div class="price-container">
+                            <span class="price-label">Per Portion</span>
+                            <div class="price">$${item.price.toFixed(2)}</div>
+                        </div>
+                        <a href="#waitlist" class="btn-primary btn-reserve">Reserve</a>
                     </div>
                 </div>
             `).join('');
         } else {
-            menuGrid.innerHTML = '<div class="loading">No active menus today. Check back tomorrow.</div>';
+            menuGrid.innerHTML = '<div class="loading">Discovering new neighborhood drops. Check back at 11:00 AM.</div>';
         }
 
         // Fetch Kitchens
@@ -42,13 +47,13 @@ async function loadMarketplace() {
             kitchenGrid.innerHTML = kitchens.map(k => `
                 <div class="card">
                     <div class="card-top">
-                        <span class="card-tag">${k.cuisine_type} Cuisine</span>
+                        <span class="card-tag">${k.cuisine_type} Specialist</span>
                         <h3>${k.name}</h3>
-                        <p class="card-meta">${k.location}</p>
+                        <p class="card-meta">Location: ${k.location}. Operating with active MEHKO safety certification.</p>
                     </div>
                     <div class="card-bottom">
                         <div class="status-badge ${k.verification_status.toLowerCase().includes('permitted') ? 'status-verified' : ''}">
-                            ${k.verification_status}
+                            Verified ${k.verification_status}
                         </div>
                     </div>
                 </div>

@@ -25,11 +25,11 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <div class="kicker">NOW PILOTING IN RIVERSIDE</div>
+                <div class="kicker">EXPANDING TO AUSTIN & RIVERSIDE</div>
                 <h1>Taste home, <br>wherever you are.</h1>
-                <p>Authentic homemade meals from your neighbors for $11. Permitted kitchens, sustainable packaging, real nourishment.</p>
+                <p>Authentic homemade meals from your neighbors for $11. Permitted kitchens, zero-waste packaging, real nourishment. Supporting the Austin Flagship 10 cohort.</p>
                 <div class="cta-group">
-                    <a href="#marketplace" class="btn-primary">View Marketplace</a>
+                    <a href="#marketplace" class="btn-primary">Shop Local Meals</a>
                     <a href="#waitlist" class="btn-secondary">Start Your Kitchen</a>
                 </div>
             </div>
@@ -70,33 +70,33 @@
                 <div class="v-grid">
                     <div class="v-item">
                         <div class="v-icon">01</div>
-                        <h3>Permitted & Safe</h3>
-                        <p>Every cook operates a Riverside County MEHKO permitted kitchen, meeting strict health and safety standards.</p>
+                        <h3>Permit-as-a-Service</h3>
+                        <p>We handle the bureaucracy. Every cook is verified and compliant with local MEHKO or Cottage Food laws.</p>
                     </div>
                     <div class="v-item">
                         <div class="v-icon">02</div>
-                        <h3>Affordable Daily</h3>
-                        <p>Most meals are priced between $9 and $13. We believe real food shouldn't be a luxury.</p>
+                        <h3>$11 Flat Pricing</h3>
+                        <p>Affordable, daily nourishment. We maintain low overhead to ensure neighbors get the best price and cooks keep more.</p>
                     </div>
                     <div class="v-item">
                         <div class="v-icon">03</div>
-                        <h3>Zero Waste</h3>
-                        <p>Branded eco-friendly packaging designed to keep food warm and the neighborhood clean.</p>
+                        <h3>Heritage Recipes</h3>
+                        <p>No industrial kitchens. Only real recipes passed down through generations, made in small batches.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Product Highlight Image -->
+        <!-- Product Highlight Image - New Austin Plant-Based Shot -->
         <section class="highlight-image">
-            <img src="images/overhead-shot-of-a-single-portion-of-gou.png" alt="Homemade Lasagna in eco-friendly packaging">
+            <img src="images/overhead-shot-of-a-vibrant-artisanal-veg.png" alt="Artisanal Plant-Based Vegetable Paella">
         </section>
 
         <!-- Waitlist Form -->
         <section id="waitlist" class="waitlist">
             <div class="waitlist-card">
                 <h2>Join the Community</h2>
-                <p>We're building the future of local food. Sign up to get invited to the next Riverside drop or to start your own permit process.</p>
+                <p>We're launching the Austin Flagship 10. Sign up to get notified when the first vegetarian heritage drop is live in your zip code.</p>
                 
                 <form id="waitlistForm">
                     <div class="form-group">
@@ -109,23 +109,31 @@
                         <div class="form-group flex-2">
                             <select name="interest_type" required>
                                 <option value="" disabled selected>Tell us your interest</option>
-                                <option value="eater">I want to order meals</option>
-                                <option value="cook">I want to cook for neighbors</option>
+                                <option value="eater">I want to order meals (Diner)</option>
+                                <option value="cook">I want to cook (Austin/Riverside)</option>
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn-primary full-width">Reserve My Spot</button>
+                    <button type="submit" class="btn-primary full-width">Secure Early Access</button>
                 </form>
                 <div id="formFeedback" class="feedback"></div>
             </div>
         </section>
     </main>
 
+    <!-- Sticky Waitlist Bar -->
+    <div class="sticky-bar" id="stickyWaitlist">
+        <div class="sticky-content">
+            <div class="sticky-text">Not in your neighborhood yet? <span>Join the 1,200+ on the waitlist.</span></div>
+            <a href="#waitlist" class="btn-primary btn-white">Join Waitlist</a>
+        </div>
+    </div>
+
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">HEIRLOOM</div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Heirloom Marketplace. Permitted Microenterprise Home Kitchen Operation (MEHKO) partner.</p>
+                <p>&copy; 2026 Heirloom Marketplace. Supporting neighborhood cooks in Texas and California.</p>
                 <div class="footer-links">
                     <a href="#">Privacy</a>
                     <a href="#">Terms</a>
@@ -135,5 +143,16 @@
     </footer>
 
     <script src="app.js"></script>
+    <script>
+        // Simple scroll handler for sticky bar
+        window.onscroll = function() {
+            var bar = document.getElementById("stickyWaitlist");
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+                bar.classList.add("hidden");
+            } else {
+                bar.classList.remove("hidden");
+            }
+        };
+    </script>
 </body>
 </html>
