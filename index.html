@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heirloom | Authentic Homemade Meals</title>
+    <title>Heirloom | Neighborhood Homemade Marketplace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,19 +14,23 @@
         <nav>
             <div class="logo">HEIRLOOM</div>
             <div class="nav-links">
-                <a href="#how-it-works">Process</a>
+                <a href="#marketplace">Marketplace</a>
+                <a href="#how-it-works">How it Works</a>
                 <a href="#waitlist" class="btn-outline">Join Waitlist</a>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Authentic homemade meals from your neighbors.</h1>
-                <p>Nourishing communities through local cooking. Affordable, healthy, and delivered with care.</p>
+                <div class="kicker">NOW PILOTING IN RIVERSIDE</div>
+                <h1>Taste home, <br>wherever you are.</h1>
+                <p>Authentic homemade meals from your neighbors for $11. Permitted kitchens, sustainable packaging, real nourishment.</p>
                 <div class="cta-group">
-                    <a href="#waitlist" class="btn-primary">Find a Kitchen</a>
+                    <a href="#marketplace" class="btn-primary">View Marketplace</a>
+                    <a href="#waitlist" class="btn-secondary">Start Your Kitchen</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -34,51 +38,83 @@
             </div>
         </section>
 
-        <section id="how-it-works" class="features">
-            <div class="section-label">THE PROCESS</div>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <span class="step-num">01</span>
-                    <h3>Discover</h3>
-                    <p>Find local home cooks in your neighborhood sharing their family heritage through food.</p>
+        <!-- Dynamic Marketplace Section -->
+        <section id="marketplace" class="marketplace">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">FRESH FROM THE NEIGHBORHOOD</div>
+                    <h2>Today's Menu</h2>
                 </div>
-                <div class="feature-item">
-                    <span class="step-num">02</span>
-                    <h3>Order</h3>
-                    <p>Select from authentic, single-batch meals prepared in permitted home kitchens.</p>
+                
+                <div id="menu-grid" class="item-grid">
+                    <!-- Loading State -->
+                    <div class="loading">Discovering local flavors...</div>
                 </div>
-                <div class="feature-item">
-                    <span class="step-num">03</span>
-                    <h3>Enjoy</h3>
-                    <p>Pick up or receive local delivery. Real food, zero waste packaging, fair prices.</p>
+
+                <div class="section-header mt-8">
+                    <div class="section-label">CERTIFIED HOME KITCHENS</div>
+                    <h2>Meet Your Cooks</h2>
+                </div>
+
+                <div id="kitchen-grid" class="item-grid">
+                    <!-- Loading State -->
+                    <div class="loading">Browsing kitchens...</div>
                 </div>
             </div>
         </section>
 
-        <section class="quote">
-            <div class="quote-content">
-                "Heirloom isn't just a delivery app. It's a return to how we used to eat—connected, seasonal, and made by hand."
+        <!-- Value Prop Section -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <div class="section-label">THE HEIRLOOM STANDARD</div>
+                <div class="v-grid">
+                    <div class="v-item">
+                        <div class="v-icon">01</div>
+                        <h3>Permitted & Safe</h3>
+                        <p>Every cook operates a Riverside County MEHKO permitted kitchen, meeting strict health and safety standards.</p>
+                    </div>
+                    <div class="v-item">
+                        <div class="v-icon">02</div>
+                        <h3>Affordable Daily</h3>
+                        <p>Most meals are priced between $9 and $13. We believe real food shouldn't be a luxury.</p>
+                    </div>
+                    <div class="v-item">
+                        <div class="v-icon">03</div>
+                        <h3>Zero Waste</h3>
+                        <p>Branded eco-friendly packaging designed to keep food warm and the neighborhood clean.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Product Highlight Image -->
+        <section class="highlight-image">
+            <img src="images/overhead-shot-of-a-single-portion-of-gou.png" alt="Homemade Lasagna in eco-friendly packaging">
+        </section>
+
+        <!-- Waitlist Form -->
         <section id="waitlist" class="waitlist">
             <div class="waitlist-card">
-                <h2>Join the Riverside Pilot</h2>
-                <p>We are launching with our first 10 Flagship Cooks this spring. Reserve your spot for the first drop.</p>
+                <h2>Join the Community</h2>
+                <p>We're building the future of local food. Sign up to get invited to the next Riverside drop or to start your own permit process.</p>
+                
                 <form id="waitlistForm">
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Email Address" required>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="zip_code" placeholder="Zip Code" required>
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <input type="text" name="zip_code" placeholder="Zip Code" required>
+                        </div>
+                        <div class="form-group flex-2">
+                            <select name="interest_type" required>
+                                <option value="" disabled selected>Tell us your interest</option>
+                                <option value="eater">I want to order meals</option>
+                                <option value="cook">I want to cook for neighbors</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <select name="interest_type">
-                            <option value="eater">I want to order meals</option>
-                            <option value="cook">I want to cook and sell</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary">Get Early Access</button>
+                    <button type="submit" class="btn-primary full-width">Reserve My Spot</button>
                 </form>
                 <div id="formFeedback" class="feedback"></div>
             </div>
@@ -86,53 +122,18 @@
     </main>
 
     <footer>
-        <div class="footer-content">
+        <div class="container footer-content">
             <div class="footer-logo">HEIRLOOM</div>
-            <div class="footer-links">
-                <span>&copy; 2026 Heirloom Marketplace</span>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Heirloom Marketplace. Permitted Microenterprise Home Kitchen Operation (MEHKO) partner.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const feedback = document.getElementById('formFeedback');
-            const button = form.querySelector('button');
-            const data = {
-                email: form.email.value,
-                zip_code: form.zip_code.value,
-                interest_type: form.interest_type.value
-            };
-
-            button.disabled = true;
-            button.textContent = 'Joining...';
-
-            try {
-                const response = await fetch('https://baget.ai/api/public/databases/9d51df10-4228-4f2e-90a6-f417a1918dc4/rows', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ data })
-                });
-
-                if (response.ok) {
-                    feedback.textContent = 'Thanks! We will be in touch soon.';
-                    feedback.style.color = '#7C8B6F';
-                    form.reset();
-                } else {
-                    throw new Error('Failed to join');
-                }
-            } catch (err) {
-                feedback.textContent = 'Something went wrong. Please try again.';
-                feedback.style.color = '#B35C44';
-            } finally {
-                button.disabled = false;
-                button.textContent = 'Get Early Access';
-            }
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
