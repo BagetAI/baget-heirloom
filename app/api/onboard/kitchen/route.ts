@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const KITCHENS_DB_ID = 'e47bd0a4-dc59-4f47-a2bd-d6503f8c757f';
-const BASE_URL = 'https://baget.ai/api/public/databases';
+const BASE_URL = 'https://app.baget.ai/api/public/databases';
 
 export async function POST(request: Request) {
     try {

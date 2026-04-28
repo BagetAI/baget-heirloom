@@ -8,7 +8,7 @@ const DATABASE_IDS = {
     waitlist: '9d51df10-4228-4f2e-90a6-f417a1918dc4'
 };
 
-const BASE_URL = 'https://baget.ai/api/public/databases';
+const BASE_URL = 'https://app.baget.ai/api/public/databases';
 
 export default function Home() {
     const [menus, setMenus] = useState<any[]>([]);
